@@ -10,7 +10,7 @@
 except ValueError:
     print("ERROR: No puedes ingresar una letra o caracter")
 except:
-    print("ERROR indenfinido") """
+    print("ERROR indefinido") """
 
 # -------------------------------------------------------------------------------------------------------------------------
 
@@ -24,33 +24,40 @@ except:
 
 """ try:
     numero = int(input("Ingresa un numero: "))
-    match numero:
-        case 1:
-            print("Impar")
-        case 2:
-            print("Par")
-        case 3:
-            print("Impar")
-        case 4:
-            print("Par")
-        case 5:
-            print("Impar")
-        case 6:
-            print("Par")
-        case 7:
-            print("Impar")
-        case 8:
-            print("Par")
-        case 9:
-            print("Impar")
-        case 10:
-            print("Par")
-        case other:
-            print("ERROR: El numero debe estar en el rango del 1 al 10")
+    if numero >= 1 and numero <= 10:
+        match numero:
+            case numero if numero%2 == 0:
+                print("Par")
+            case numero if numero%2 != 0:
+                print("Impar")
+
+            # ↓↓↓ DE MANERA INDIVIDUAL ↓↓↓
+            # case 1:
+            #     print("Impar")
+            # case 2:
+            #     print("Par")
+            # case 3:
+            #     print("Impar")
+            # case 4:
+            #     print("Par")
+            # case 5:
+            #     print("Impar")
+            # case 6:
+            #     print("Par")
+            # case 7:
+            #     print("Impar")
+            # case 8:
+            #     print("Par")
+            # case 9:
+            #     print("Impar")
+            # case 10:
+            #     print("Par")
+    else:
+        print("ERROR: El numero debe estar en el rango de 1 a 10")
 except ValueError:
-    print("ERROR: No puedes ingresar una letra o caracter")
+    print("ERROR: No puedes ingresar letras, caracteres o numeros decimales")
 except:
-    print("ERROR indenfinido") """
+    print("ERROR indefinido") """
 
 
 # -------------------------------------------------------------------------------------------------------------------------
@@ -61,7 +68,7 @@ except:
 # no está comprendido entre 1 y 10 mostrar un mensaje de error.
 
 """ try:
-    numero = input("Ingresa un numero: ")
+    numero = int(input("Ingresa un numero: "))
     match numero:
         case 1:
             print("Uno")
@@ -80,15 +87,15 @@ except:
         case 8:
             print("Ocho")
         case 9:
-            print("Nuevo")
+            print("Nueve")
         case 10:
             print("Diez")
         case other:
             print("ERROR: El numero debe estar en el rango del 1 al 10")
 except ValueError:
-    print("ERROR: No puedes ingresar una letra o caracter")
+    print("ERROR: No puedes ingresar letras, caracteres o numeros decimales")
 except:
-    print("ERROR indenfinido") """
+    print("ERROR indefinido") """
 
 
 # -------------------------------------------------------------------------------------------------------------------------
@@ -100,9 +107,7 @@ except:
 # • cada minuto adicional a partir de los tres primeros es un paso de contador y
 # cuesta 100 pesos.
 
-
-try:
-
+""" try:
     minutos = int(input("Duracion en minutos de la llamada: "))
     if minutos <= 0:
         print("ERROR: Debes ingresar un valor a partir de 1")
@@ -111,12 +116,11 @@ try:
     else:
         total = 200 + (minutos-3) * 100
         print(f"El coste de la llamada es de ${total} pesos")
-
 except ValueError:
     print("ERROR: No puedes ingresar una letra o caracter")
 except:
-    print("ERROR indenfinido")
-
+    print("ERROR indefinido")
+ """
 
 # -------------------------------------------------------------------------------------------------------------------------
 
@@ -128,65 +132,46 @@ except:
 # los conejos negros, imprima el monto total de la venta.
 # • Imprima el color de los conejos que se vendieron más.
 
-""" conejos = input("Ingrese la cantidad de conejos: ")
-
-if conejos.isnumeric():
-
-    conejos = int(conejos)
-    blancos = input("Ingrese la cantidad de conejos blancos: ")
-    negros = input("Ingrese la cantidad de conejos negros: ")
-
-    if blancos.isnumeric() and negros.isnumeric():
-
-        blancos = int(blancos)
-        negros = int(negros)
-
+""" try:
+    conejos = int(input("Ingrese la cantidad de conejos: "))
+    blancos = int(input("Ingrese la cantidad de conejos blancos: "))
+    negros = int(input("Ingrese la cantidad de conejos negros: "))
+    try:
         if blancos + negros == conejos:
+            precio_b = float(input("Precio de venta de los conejos blancos: "))
+            precio_n = float(input("Precio de venta de los conejos negros: "))
+            try:
+                vendidos_b = int(input("Cantidad de conejos blancos vendidos: "))
+                vendidos_n = int(input("Cantidad de conejos negros vendidos: "))
 
-            precio_b = input("Precio de venta de los conejos blancos: ")
-            precio_n = input("Precio de venta de los conejos negros: ")
-
-            if precio_b.isnumeric() and precio_n.isnumeric():
-
-                precio_b = int(precio_b)
-                precio_n = int(precio_n)
-                vendidos_b = input("Cantidad de conejos blancos vendidos: ")
-                vendidos_n = input("Cantidad de conejos negros vendidos: ")
-
-                if vendidos_b.isnumeric() and vendidos_n.isnumeric():
-
-                    vendidos_b = int(vendidos_b)
-                    vendidos_n = int(vendidos_n)
-
-                    if (vendidos_b < 1 or vendidos_b > blancos) and (vendidos_n < 1 or vendidos_n > negros):
-                        print("La cantidad de conejos vendidos de AMBOS colores supera o es menor a la cantidad disponible")
-                    elif vendidos_b < 1 or vendidos_b > blancos:
-                        print("La cantidad de conejos vendidos del color BLANCO supera o es menor a la cantidad disponible")
-                    elif vendidos_n < 1 or vendidos_n > negros:
-                        print("La cantidad de conejos vendidos del color NEGRO supera o es menor a la cantidad disponible")
-                    else:
-                        total_vendidos = vendidos_n + vendidos_b
-                        total_venta = (precio_b * vendidos_b) + (precio_n * vendidos_n)
-
-                        print("\n---------Resultados Finales-----------")
-                        print(f"La cantidad de conejos vendidos son: {total_vendidos}")
-                        print(f"El total de la venta es de: ${total_venta}")
-                        if vendidos_b > vendidos_n:
-                            print("Los conejos de color blanco se vendieron mas")
-                        else:
-                            print("Los conejos de color negro se vendieron mas")
-                        print("--------------------------------------\n")
+                if (vendidos_b < 1 or vendidos_b > blancos) and (vendidos_n < 1 or vendidos_n > negros):
+                    print("La cantidad de conejos vendidos de AMBOS colores supera o es menor a la cantidad disponible")
+                elif vendidos_b < 1 or vendidos_b > blancos:
+                    print("La cantidad de conejos vendidos del color BLANCO supera o es menor a la cantidad disponible")
+                elif vendidos_n < 1 or vendidos_n > negros:
+                    print("La cantidad de conejos vendidos del color NEGRO supera o es menor a la cantidad disponible")
                 else:
-                    print("ERROR: El tipo de dato tiene que ser un numero entero")
-            else:
-                print("ERROR: El tipo de dato tiene que ser un numero entero")
+                    total_vendidos = vendidos_n + vendidos_b
+                    total_venta = (precio_b * vendidos_b) + (precio_n * vendidos_n)
+
+                    print("\n---------Resultados Finales-----------")
+                    print(f"La cantidad de conejos vendidos son: {total_vendidos}")
+                    print(f"El total de la venta es de: ${total_venta}")
+                    if vendidos_b > vendidos_n:
+                        print("Los conejos de color blanco se vendieron mas")
+                    else:
+                        print("Los conejos de color negro se vendieron mas")
+                    print("--------------------------------------\n")
+            except ValueError:
+                print("ERROR: No puedes ingresar letras, caracteres o numeros decimales")
         else:
             print("ERROR: Estas ingresando una cantidad erronea de conejos")
-    else:
-        print("ERROR: El tipo de dato tiene que ser un numero entero")
-else: 
-    print("ERROR: El tipo de dato tiene que ser un numero entero") """
-
+    except ValueError:
+        print("ERROR: No puedes ingresar letras o caracteres")
+except ValueError:
+    print("ERROR: No puedes ingresar letras, caracteres o numeros decimales")
+except:
+    print("ERROR indefinido") """
 
 
 # -------------------------------------------------------------------------------------------------------------------------
@@ -202,49 +187,39 @@ else:
 # • Nota mínima 1,0 nota máxima: 5,0
 
 """ print("\nINGRESA SOLO NOTAS ENTERAS (EJEMPLO: si tienes una nota de 1.0 debes poner 10)\n")
-
-nota_ev1 = input("Ingresa la nota de la primera evaluacion: ")
-nota_ev2 = input("Ingresa la nota de la segunda evaluacion: ")
-nota_ev3 = input("Ingresa la nota de la tercera evaluacion: ")
-
-if nota_ev1.isnumeric() and nota_ev2.isnumeric() and nota_ev3.isnumeric():
-
-    nota_ev1 = int(nota_ev1)
-    nota_ev2 = int(nota_ev2)
-    nota_ev3 = int(nota_ev3)
+try:
+    nota_ev1 = int(input("Ingresa la nota de la primera evaluacion: "))
+    nota_ev2 = int(input("Ingresa la nota de la segunda evaluacion: "))
+    nota_ev3 = int(input("Ingresa la nota de la tercera evaluacion: "))
 
     if (nota_ev1 >= 10 and nota_ev1 <= 50) and (nota_ev2 >= 10 and nota_ev2 <= 50) and (nota_ev3 >= 10 and nota_ev3 <= 50):
         
         totalnota_evs = ((nota_ev1 + nota_ev2 + nota_ev3) / 3) * 0.6
         # mensaje de la nota si se quiere saber inmediatamente
         # print("La nota final del promedio de las evaluaciones por el 60% es: ", totalnota_evs)
-        nota_tra1 = input("Ingresa la nota del primer trabajo: ")
-        nota_tra2 = input("Ingresa la nota del segundo trabajo: ")
+        
+        nota_tra1 = int(input("Ingresa la nota del primer trabajo: "))
+        nota_tra2 = int(input("Ingresa la nota del segundo trabajo: "))
 
-        if nota_tra1.isnumeric() and nota_tra2.isnumeric():
-
-            nota_tra1 = int(nota_tra1)
-            nota_tra2 = int(nota_tra2)
-
-            if (nota_tra1 >= 10 and nota_tra1 <= 50) and (nota_tra2 >= 10 and nota_tra2 <= 50):
-                
-                totalnota_tra = ((nota_tra1 + nota_tra2) / 2) * 0.4
-                # mensaje de la nota si se quiere saber inmediatamente
-                # print("La nota final del promedio de los trabajos por el 40% es: ", totalnota_tra)
-                notafinal = totalnota_evs + totalnota_tra
-                print("\n---------Resultados Finales-----------")
-                print("La nota final de las evaluaciones es: ", totalnota_evs)
-                print("La nota final de los trabajos es: ", totalnota_tra)
-                print("La nota final es: ", notafinal)
-                print("--------------------------------------\n")
-            else:
-                print("ERROR: Alguna de las notas tiene un valor erroneo")
+        if (nota_tra1 >= 10 and nota_tra1 <= 50) and (nota_tra2 >= 10 and nota_tra2 <= 50):
+            
+            totalnota_tra = ((nota_tra1 + nota_tra2) / 2) * 0.4
+            # mensaje de la nota si se quiere saber inmediatamente
+            # print("La nota final del promedio de los trabajos por el 40% es: ", totalnota_tra)
+            notafinal = totalnota_evs + totalnota_tra
+            print("\n---------Resultados Finales-----------")
+            print("La nota final de las evaluaciones es: ", totalnota_evs)
+            print("La nota final de los trabajos es: ", totalnota_tra)
+            print("La nota final es: ", notafinal)
+            print("--------------------------------------\n")
         else:
-            print("ERROR: El tipo de dato tiene que ser un numero entero") 
+            print("ERROR: Alguna de las notas tiene un valor erroneo")
     else:
         print("ERROR: Alguna de las notas tiene un valor erroneo")
-else: 
-    print("ERROR: El tipo de dato tiene que ser un numero entero")  """
+except ValueError:
+    print("ERROR: No puedes ingresar letras, caracteres o numeros decimales")
+except:
+    print("ERROR indefinido") """
 
 
 # -------------------------------------------------------------------------------------------------------------------------
@@ -255,48 +230,47 @@ else:
 # clave es 1 el descuento es del 10% y si la clave es 2 el descuento es del 20% (solo
 # existen dos claves).
 
-""" nombre_art = input("Ingrese el nombre del articulo: ")
-clave = input("Ingrese la clave: ")
+""" try:
+    nombre_art = input("Ingrese el nombre del articulo: ")
+    clave = int(input("Ingrese la clave: "))
 
-if clave.isnumeric():
-    clave = int(clave)
     if clave == 1 or clave == 2:
+        try:
+            precio_ori = float(input("Ingrese el precio del articulo: "))
+            try:
+                cantidad = int(input("Ingrese la cantidad a comprar: "))
 
-        precio_ori = input("Ingrese el precio del articulo: ")
-        cantidad = input("Ingrese la cantidad a comprar: ")
+                if precio_ori and cantidad > 0:
+                    if clave == 1:
+                        desc_clave = 10
+                        precio_total = precio_ori * cantidad
+                        descuento = precio_total - (precio_total * (desc_clave/100))
 
-        if precio_ori.isnumeric() and cantidad.isnumeric():
+                    else:
+                        desc_clave = 20
+                        precio_total = precio_ori * cantidad
+                        descuento = precio_total - (precio_total * (desc_clave/100))
 
-            precio_ori = int(precio_ori)
-            cantidad = int(cantidad)
-
-            if precio_ori and cantidad > 0:
-                if clave == 1:
-                    desc_clave = 10
-                    precio_total = precio_ori * cantidad
-                    descuento = precio_total - (precio_total * (desc_clave/100))
-
+                    print("\n---------Resultados Finales-----------")
+                    print(f"Articulo: {nombre_art}")
+                    print(f"Clave: {clave}")
+                    print(f"Precio unidad: ${precio_ori}")
+                    print(f"Cantidad: {cantidad}")
+                    print(f"Precio original: ${precio_total}")
+                    print(f"Precio con descuento del {desc_clave}%: ${descuento}")
+                    print("--------------------------------------\n")
                 else:
-                    desc_clave = 20
-                    precio_total = precio_ori * cantidad
-                    descuento = precio_total - (precio_total * (desc_clave/100))
-
-                print("\n---------Resultados Finales-----------")
-                print(f"Articulo: {nombre_art}")
-                print(f"Clave: {clave}")
-                print(f"Precio unidad: ${precio_ori}")
-                print(f"Cantidad: {cantidad}")
-                print(f"Precio original: ${precio_total}")
-                print(f"Precio con descuento del {desc_clave}%: ${descuento}")
-                print("--------------------------------------\n")
-            else:
-                print("ERROR: No puedes poner valores menores o iguales a 0")
-        else:
-            print("ERROR: El tipo de dato tiene que ser un numero entero")
+                    print("ERROR: No puedes poner valores menores o iguales a 0")
+            except ValueError:
+                print("ERROR: No puedes ingresar letras, caracteres o numeros decimales")
+        except ValueError:
+            print("ERROR: No puedes ingresar letras o caracteres")
     else:
         print("ERROR: La clave ingresada es incorrecta")
-else:
-    print("ERROR: El tipo de dato tiene que ser un numero entero") """
+except ValueError:
+    print("ERROR: No puedes ingresar letras, caracteres o numeros decimales")
+except:
+    print("ERROR indefinido") """
 
 
 # -------------------------------------------------------------------------------------------------------------------------
@@ -310,42 +284,32 @@ else:
 # porcentajes no corresponde al 100% debe mostrar un mensaje de error.
 # Mostrar el porcentaje asignado a cada área y el presupuesto obtenido.
 
-""" presupuesto = input("Ingrese el presupuesto anual: ")
+""" try:
+    presupuesto = float(input("Ingrese el presupuesto anual: "))
 
-if presupuesto.isnumeric():
-    presupuesto = int(presupuesto)
     if presupuesto > 0:
+        porc_psi = float(input("Ingrese el porcentaje correspondiente al area de Psiquiatría: "))
+        porc_ped = float(input("Ingrese el porcentaje correspondiente al area de Pediatría: "))
+        porc_tra = float(input("Ingrese el porcentaje correspondiente al area de Traumatología: "))
 
-        porc_psi = input("Ingrese el porcentaje correspondiente al area de Psiquiatría: ")
-        porc_ped = input("Ingrese el porcentaje correspondiente al area de Pediatría: ")
-        porc_tra = input("Ingrese el porcentaje correspondiente al area de Traumatología: ")
+        if porc_psi + porc_ped + porc_tra == 100:
+            presu_psi = presupuesto * (porc_psi/100)
+            presu_ped = presupuesto * (porc_ped/100)
+            presu_tra = presupuesto * (porc_tra/100)
 
-        if porc_psi.isnumeric() and porc_ped.isnumeric() and porc_tra.isnumeric():
-            
-            porc_psi = int(porc_psi)
-            porc_ped = int(porc_ped)
-            porc_tra = int(porc_tra)
-
-            if porc_psi + porc_ped + porc_tra == 100:
-
-                presu_psi = presupuesto * (porc_psi/100)
-                presu_ped = presupuesto * (porc_ped/100)
-                presu_tra = presupuesto * (porc_tra/100)
-
-                print("\n---------Resultados Finales-----------")
-                print(f"Area Psiquiatría\nPorcentaje asignado: {porc_psi}%\nPresupuesto obtenido: ${presu_psi}\n")
-                print(f"Area Pediatría\nPorcentaje asignado: {porc_ped}%\nPresupuesto obtenido: ${presu_ped}\n")
-                print(f"Area Traumatología\nPorcentaje asignado: {porc_tra}%\nPresupuesto obtenido: ${presu_tra}")
-                print("--------------------------------------\n")
-
-            else:
-                print("ERROR: La suma de los porcentajes no equivalen al 100% del presupuesto")
+            print("\n---------Resultados Finales-----------")
+            print(f"Area Psiquiatría\nPorcentaje asignado: {porc_psi}%\nPresupuesto obtenido: ${presu_psi}\n")
+            print(f"Area Pediatría\nPorcentaje asignado: {porc_ped}%\nPresupuesto obtenido: ${presu_ped}\n")
+            print(f"Area Traumatología\nPorcentaje asignado: {porc_tra}%\nPresupuesto obtenido: ${presu_tra}")
+            print("--------------------------------------\n")
         else:
-            print("ERROR: El tipo de dato tiene que ser un numero entero")
+            print("ERROR: La suma de los porcentajes no equivalen al 100% del presupuesto")
     else:
         print("ERROR: No puedes ingresar un presupuesto menor o igual a $0")
-else:
-    print("ERROR: El tipo de dato tiene que ser un numero entero") """
+except ValueError:
+    print("ERROR: No puedes ingresar letras o caracteres")
+except:
+    print("ERROR indefinido") """
 
 # -------------------------------------------------------------------------------------------------------------------------
 
@@ -355,25 +319,28 @@ else:
 # superior o igual a 7 y la distancia superior a 800 km el billete tiene una reducción del
 # 30%. El precio por km es de $2,5 dólares.
 
-""" dias = input("Ingresa la cantidad de dias de estancia: ")
-distancia = input("Ingresa la distancia total en km: ")
+""" try:
+    dias = int(input("Ingresa la cantidad de dias de estancia: "))
+    try:
+        distancia = float(input("Ingresa la distancia total en km: "))
 
-if dias.isnumeric() and distancia.isnumeric():
+        if dias and distancia > 0:
+            if dias >= 7 and distancia > 800:
+                precio = (distancia * 2.5) - ((distancia * 2.5) * 0.3)
+            else:
+                precio = distancia * 2.5
 
-    dias = int(dias)
-    distancia = int(distancia)
-
-    if dias and distancia > 0:
-        if dias >= 7 and distancia > 800:
-            precio = (distancia * 2.5) - ((distancia * 2.5) * 0.3)
+            print("\n---------Resultados Finales-----------")
+            print(f"El precio del tiquete es de: ${precio} dolares")
+            print("--------------------------------------\n")
         else:
-            precio = distancia * 2.5
+            print("ERROR: Debes ingresar valores superiores a 0")
+    except ValueError:
+        print("ERROR: No puedes ingresar letras o caracteres")
+except ValueError:
+    print("ERROR: No puedes ingresar letras, caracteres o numeros decimales")
+except:
+    print("ERROR indefinido") """
 
-        print("\n---------Resultados Finales-----------")
-        print(f"El precio del tiquete es de: ${precio} dolares")
-        print("--------------------------------------\n")
-    else:
-        print("ERROR: Debes ingresar valores superiores a 0")
-else:
-    print("ERROR: El tipo de dato tiene que ser un numero entero") """
 
+# CODED BY: juan torra
