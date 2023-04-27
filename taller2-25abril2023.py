@@ -1,18 +1,94 @@
 # 1. Leer dos (2) números y los imprima en forma ascendente.
 
-""" num1 = input("Ingresa el primer numero: ")
-num2 = input("Ingresa el segundo numero: ")
-
-if num1.isnumeric() and num2.isnumeric():
-    num1 = int(num1)
-    num2 = int(num2)
-
+""" try:
+    num1 = float(input("Ingresa el primer numero: "))
+    num2 = float(input("Ingresa el segundo numero: "))
     if num1 > num2:
         print(num2, num1)
     else:
         print(num1, num2)
-else:
-    print("ERROR: El tipo de dato debe ser un numero entero") """
+except ValueError:
+    print("ERROR: No puedes ingresar una letra o caracter")
+except:
+    print("ERROR indenfinido") """
+
+# -------------------------------------------------------------------------------------------------------------------------
+
+
+# 2. (Sentencia match) Diseñar un algoritmo que lea por teclado un número
+# comprendido entre 1 y 10. Se desea visualizar si el número es par o impar. En primer
+# lugar, se deberá
+# detectar si el número está comprendido en el rango válido (1 a 10) y a continuación
+# si el número es 1, 3, 5, 7, 9, escribir un mensaje de “impar”; si es 2, 4, 6, 8, 10, escribir
+# un mensaje de “par”.
+
+""" try:
+    numero = int(input("Ingresa un numero: "))
+    match numero:
+        case 1:
+            print("Impar")
+        case 2:
+            print("Par")
+        case 3:
+            print("Impar")
+        case 4:
+            print("Par")
+        case 5:
+            print("Impar")
+        case 6:
+            print("Par")
+        case 7:
+            print("Impar")
+        case 8:
+            print("Par")
+        case 9:
+            print("Impar")
+        case 10:
+            print("Par")
+        case other:
+            print("ERROR: El numero debe estar en el rango del 1 al 10")
+except ValueError:
+    print("ERROR: No puedes ingresar una letra o caracter")
+except:
+    print("ERROR indenfinido") """
+
+
+# -------------------------------------------------------------------------------------------------------------------------
+
+
+# 3. (Sentencia match) Diseñar un algoritmo que lea un número entero entre 1 y 10, y
+# nos muestre por pantalla el número ingresado en letra (1 = uno). Si el número leído
+# no está comprendido entre 1 y 10 mostrar un mensaje de error.
+
+""" try:
+    numero = input("Ingresa un numero: ")
+    match numero:
+        case 1:
+            print("Uno")
+        case 2:
+            print("Dos")
+        case 3:
+            print("Tres")
+        case 4:
+            print("Cuatro")
+        case 5:
+            print("Cinco")
+        case 6:
+            print("Seis")
+        case 7:
+            print("Siete")
+        case 8:
+            print("Ocho")
+        case 9:
+            print("Nuevo")
+        case 10:
+            print("Diez")
+        case other:
+            print("ERROR: El numero debe estar en el rango del 1 al 10")
+except ValueError:
+    print("ERROR: No puedes ingresar una letra o caracter")
+except:
+    print("ERROR indenfinido") """
 
 
 # -------------------------------------------------------------------------------------------------------------------------
@@ -24,10 +100,10 @@ else:
 # • cada minuto adicional a partir de los tres primeros es un paso de contador y
 # cuesta 100 pesos.
 
-""" minutos = input("Duracion en minutos de la llamada: ")
 
-if minutos.isnumeric():
-    minutos = int(minutos)
+try:
+
+    minutos = int(input("Duracion en minutos de la llamada: "))
     if minutos <= 0:
         print("ERROR: Debes ingresar un valor a partir de 1")
     elif minutos <= 3:
@@ -35,8 +111,12 @@ if minutos.isnumeric():
     else:
         total = 200 + (minutos-3) * 100
         print(f"El coste de la llamada es de ${total} pesos")
-else:
-    print("ERROR: El tipo de dato debe ser un numero entero") """
+
+except ValueError:
+    print("ERROR: No puedes ingresar una letra o caracter")
+except:
+    print("ERROR indenfinido")
+
 
 # -------------------------------------------------------------------------------------------------------------------------
 
